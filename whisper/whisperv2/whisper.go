@@ -30,7 +30,8 @@ import (
 	"github.com/ethereum/go-ethereum/p2p"
 	"github.com/ethereum/go-ethereum/rpc"
 
-	"gopkg.in/fatih/set.v0"
+	//"gopkg.in/fatih/set.v0"
+	"github.com/ethereum/go-ethereum/set.v0"
 )
 
 const (
@@ -61,7 +62,7 @@ type MessageEvent struct {
 // Whisper represents a dark communication interface through the Ethereum
 // network, using its very own P2P communication layer.
 type Whisper struct {
-	protocol p2p.Protocol
+	Protocol p2p.Protocol
 	filters  *filter.Filters
 
 	keys map[string]*ecdsa.PrivateKey
@@ -90,7 +91,7 @@ func New() *Whisper {
 	whisper.filters.Start()
 
 	// p2p whisper sub protocol handler
-	whisper.protocol = p2p.Protocol{
+	whisper.Protocol = p2p.Protocol{
 		Name:    protocolName,
 		Version: uint(protocolVersion),
 		Length:  2,
@@ -114,12 +115,12 @@ func (s *Whisper) APIs() []rpc.API {
 
 // Protocols returns the whisper sub-protocols ran by this particular client.
 func (self *Whisper) Protocols() []p2p.Protocol {
-	return []p2p.Protocol{self.protocol}
+	return []p2p.Protocol{self.Protocol}
 }
 
 // Version returns the whisper sub-protocols version number.
 func (self *Whisper) Version() uint {
-	return self.protocol.Version
+	return self.Protocol.Version
 }
 
 // NewIdentity generates a new cryptographic identity for the client, and injects
@@ -172,8 +173,9 @@ func (self *Whisper) Send(envelope *Envelope) error {
 
 // Start implements node.Service, starting the background data propagation thread
 // of the Whisper protocol.
-func (self *Whisper) Start(*p2p.Server) error {
+func (self *Whisper) Start(p2p.Server) error {
 	log.Info(fmt.Sprint("Whisper started"))
+	fmt.Println("Whisper started")
 	go self.update()
 	return nil
 }
@@ -183,6 +185,7 @@ func (self *Whisper) Start(*p2p.Server) error {
 func (self *Whisper) Stop() error {
 	close(self.quit)
 	log.Info(fmt.Sprint("Whisper stopped"))
+	fmt.Println("Whisper stopped")
 	return nil
 }
 
@@ -263,6 +266,7 @@ func (self *Whisper) add(envelope *Envelope) error {
 	hash := envelope.Hash()
 	if _, ok := self.messages[hash]; ok {
 		log.Trace(fmt.Sprintf("whisper envelope already cached: %x\n", envelope))
+		fmt.Println("whisper envelope already cached: %x\n", envelope)
 		return nil
 	}
 	self.messages[hash] = envelope
@@ -278,6 +282,8 @@ func (self *Whisper) add(envelope *Envelope) error {
 		go self.postEvent(envelope)
 	}
 	log.Trace(fmt.Sprintf("cached whisper envelope %x\n", envelope))
+	fmt.Sprintf("cached whisper envelope %x\n", envelope)
+	fmt.Println("cached whisper envelope %x\n", envelope)
 	return nil
 }
 

@@ -47,7 +47,7 @@ type Statistics struct {
 // Whisper represents a dark communication interface through the Ethereum
 // network, using its very own P2P communication layer.
 type Whisper struct {
-	protocol p2p.Protocol // Protocol description and parameters
+	Protocol p2p.Protocol // Protocol description and parameters
 	filters  *Filters     // Message filters installed with Subscribe function
 
 	privateKeys map[string]*ecdsa.PrivateKey // Private key storage
@@ -91,7 +91,7 @@ func New() *Whisper {
 	whisper.filters = NewFilters(whisper)
 
 	// p2p whisper sub protocol handler
-	whisper.protocol = p2p.Protocol{
+	whisper.Protocol = p2p.Protocol{
 		Name:    ProtocolName,
 		Version: uint(ProtocolVersion),
 		Length:  NumberOfMessageCodes,
@@ -121,12 +121,12 @@ func (w *Whisper) RegisterServer(server MailServer) {
 
 // Protocols returns the whisper sub-protocols ran by this particular client.
 func (w *Whisper) Protocols() []p2p.Protocol {
-	return []p2p.Protocol{w.protocol}
+	return []p2p.Protocol{w.Protocol}
 }
 
 // Version returns the whisper sub-protocols version number.
 func (w *Whisper) Version() uint {
-	return w.protocol.Version
+	return w.Protocol.Version
 }
 
 // SetMaxMessageLength sets the maximal message length allowed by this node
@@ -398,6 +398,7 @@ func (w *Whisper) Send(envelope *Envelope) error {
 // of the Whisper protocol.
 func (w *Whisper) Start(*p2p.Server) error {
 	log.Info("started whisper v." + ProtocolVersionStr)
+	fmt.Println("started whisper v." + ProtocolVersionStr)
 	go w.update()
 
 	numCPU := runtime.NumCPU()
@@ -413,6 +414,7 @@ func (w *Whisper) Start(*p2p.Server) error {
 func (w *Whisper) Stop() error {
 	close(w.quit)
 	log.Info("whisper stopped")
+	fmt.Println("whisper stopped")
 	return nil
 }
 

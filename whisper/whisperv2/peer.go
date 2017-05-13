@@ -20,12 +20,17 @@ import (
 	"fmt"
 	"time"
 
+
+	//"gopkg.in/fatih/set.v0"
+	"github.com/ethereum/go-ethereum/set.v0"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/p2p"
 	"github.com/ethereum/go-ethereum/rlp"
-	"gopkg.in/fatih/set.v0"
+
 )
+
+//import "gopkg.in/fatih/set.v0"
 
 // peer represents a whisper protocol peer connection.
 type peer struct {
