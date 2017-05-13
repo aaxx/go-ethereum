@@ -22,14 +22,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/sonm-io/go-ethereum/common"
+	"github.com/sonm-io/go-ethereum/core"
+	"github.com/sonm-io/go-ethereum/core/types"
+	"github.com/sonm-io/go-ethereum/ethdb"
+	"github.com/sonm-io/go-ethereum/event"
+	"github.com/sonm-io/go-ethereum/log"
+	"github.com/sonm-io/go-ethereum/params"
+	"github.com/sonm-io/go-ethereum/rlp"
 )
 
 // txPermanent is the number of mined blocks after a mined transaction is

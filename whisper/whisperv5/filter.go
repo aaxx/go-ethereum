@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/sonm-io/go-ethereum/common"
+	"github.com/sonm-io/go-ethereum/log"
 )
 
 type Filter struct {

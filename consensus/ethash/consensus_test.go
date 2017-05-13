@@ -22,8 +22,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/sonm-io/go-ethereum/common/math"
+	"github.com/sonm-io/go-ethereum/params"
 )
 
 type diffTest struct {

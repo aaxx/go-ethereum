@@ -24,12 +24,12 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/sonm-io/go-ethereum/common"
+	"github.com/sonm-io/go-ethereum/core"
+	"github.com/sonm-io/go-ethereum/core/types"
+	"github.com/sonm-io/go-ethereum/ethdb"
+	"github.com/sonm-io/go-ethereum/log"
+	"github.com/sonm-io/go-ethereum/rlp"
 )
 
 var useSequentialKeys = []byte("dbUpgrade_20160530sequentialKeys")

@@ -22,11 +22,11 @@ import (
 
 
 	//"gopkg.in/fatih/set.v0"
-	"github.com/ethereum/go-ethereum/set.v0"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/sonm-io/go-ethereum/set.v0"
+	"github.com/sonm-io/go-ethereum/common"
+	"github.com/sonm-io/go-ethereum/log"
+	"github.com/sonm-io/go-ethereum/p2p"
+	"github.com/sonm-io/go-ethereum/rlp"
 
 )
 

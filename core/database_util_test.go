@@ -23,13 +23,13 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/crypto/sha3"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/sonm-io/go-ethereum/common"
+	"github.com/sonm-io/go-ethereum/core/types"
+	"github.com/sonm-io/go-ethereum/crypto"
+	"github.com/sonm-io/go-ethereum/crypto/sha3"
+	"github.com/sonm-io/go-ethereum/ethdb"
+	"github.com/sonm-io/go-ethereum/params"
+	"github.com/sonm-io/go-ethereum/rlp"
 )
 
 // Tests block header storage and retrieval operations.

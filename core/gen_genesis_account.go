@@ -7,9 +7,9 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/sonm-io/go-ethereum/common"
+	"github.com/sonm-io/go-ethereum/common/hexutil"
+	"github.com/sonm-io/go-ethereum/common/math"
 )
 
 func (g GenesisAccount) MarshalJSON() ([]byte, error) {

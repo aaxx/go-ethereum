@@ -21,8 +21,8 @@ package fuse
 import (
 	"bytes"
 	"crypto/rand"
-	"github.com/ethereum/go-ethereum/swarm/api"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/sonm-io/go-ethereum/swarm/api"
+	"github.com/sonm-io/go-ethereum/swarm/storage"
 	"io"
 	"io/ioutil"
 	"os"
